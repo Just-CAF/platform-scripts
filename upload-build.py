@@ -2,9 +2,9 @@ import os
 import subprocess
 
 build_dirs = ['out/target/product/cheeseburger', 'out/target/product/dumpling']
-newest = ""
 
 for device_dir in build_dirs:
+    newest = ""
     for file in os.listdir(device_dir):
         if file.endswith(".zip"):
             filename = file.split("-")
