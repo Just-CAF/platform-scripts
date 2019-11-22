@@ -13,15 +13,18 @@ custom_repos = {
     'external/selinux': 'platform/external/selinux',
     'frameworks/av': 'platform/frameworks/av',
     'system/core': 'platform/system/core',
-    'vendor/qcom/opensource/audio-hal/primary-hal', 'platform/hardware/qcom/audio'
+    'vendor/qcom/opensource/audio-hal/primary-hal': 'platform/hardware/qcom/audio',
     'vendor/qcom/opensource/commonsys/cryptfs_hw': 'platform/vendor/qcom-opensource/cryptfs_hw/',
     'vendor/qcom/opensource/interfaces': 'platform/vendor/qcom-opensource/interfaces/',
     'hardware/qcom/media': 'platform/hardware/qcom/media',
     'frameworks/base': 'platform/frameworks/base',
-    'packages/services/telephony': 'platform/packages/services/telephony',
+    'packages/services/Telephony': 'platform/packages/services/telephony',
     'vendor/codeaurora/commonsys/telephony': 'platform/vendor/codeaurora/commonsys/telephony',
     'frameworks/opt/telephony': 'platform/frameworks/opt/telephony',
-    'frameworks/opt/net/wifi': 'platform/frameworks/opt/net/wifi'
+    'frameworks/opt/net/wifi': 'platform/frameworks/opt/net/wifi',
+    'vendor/qcom/opensource/audio-hal/primary-hal': 'platform/hardware/qcom/audio',
+    'hardware/qcom/media': 'platform/hardware/qcom/media',
+    'packages/apps/Messaging': 'platform/packages/apps/Messaging'
 }
 
 codeaurora_base = "https://source.codeaurora.org/quic/la"
