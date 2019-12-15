@@ -14,5 +14,5 @@ for device_dir in build_dirs:
 		newest = filename
 
     device = device_dir.split('/')[3]
-    command = "scp {} rautamak@frs.sourceforge.net:/home/frs/project/just-caf-releases/{}".format(device_dir + "/" + newest, device.capitalize())
+    command = "scp {} rautamak@frs.sourceforge.net:/home/frs/project/just-caf-releases/custom_prerelease/{}".format(device_dir + "/" + newest, device.capitalize())
     subprocess.call(command, shell=True)
