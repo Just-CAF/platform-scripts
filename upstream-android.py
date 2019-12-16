@@ -32,7 +32,7 @@ codeaurora_base = "https://source.codeaurora.org/quic/la"
 for path, repo in custom_repos.items():
     print("repo:", path)
     full_path = "{}{}".format(build_top, path)
-    subprocess.Popen("git checkout -b q", shell=True, cwd=full_path)
+    subprocess.Popen("git checkout custom || git checkout q", shell=True, cwd=full_path)
     print subprocess.call("git remote add caf {}/{}".format(codeaurora_base, repo), shell=True, cwd=full_path)
     print subprocess.call("git pull caf refs/tags/{}".format(TAG), shell=True, cwd=full_path)
     print subprocess.call("git push aosp-caf q", shell=True, cwd=full_path)
