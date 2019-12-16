@@ -1,6 +1,6 @@
 import subprocess
 
-TAG = "LA.UM.8.4.r1-04600-8x98.0"
+TAG = "LA.UM.8.4.r1-04700-8x98.0"
 build_top = "/root/caf10/"
 
 custom_repos = {
