@@ -12,7 +12,6 @@ for line in f.readlines():
         name = line.split('"')[1].replace("_", "/")
         path = line.split('"')[3]
 
-
         # Handling exceptions..
         if name == "platform/vendor/qcom-opensource/commonsys/cryptfs/hw":
             name = "platform/vendor/qcom-opensource/cryptfs_hw"
@@ -24,9 +23,11 @@ for line in f.readlines():
         custom_repos[path] = name
 
 for path, repo in custom_repos.items():
-    print("repo:", path)
+    print("repo: " + path)
     full_path = "{}{}".format(build_top, path)
-    subprocess.Popen("git checkout -b q", shell=True, cwd=full_path)
-    print subprocess.call("git remote add caf {}/{}".format(codeaurora_base, repo), shell=True, cwd=full_path)
-    print subprocess.call("git pull caf refs/tags/{}".format(TAG), shell=True, cwd=full_path)
-    print subprocess.call("git push aosp-caf q", shell=True, cwd=full_path)
+    subprocess.Popen("git checkout q 2>/dev/null", shell=True, cwd=full_path)
+    print subprocess.call("git fetch {}/{} refs/tags/{}".format(codeaurora_base, repo, TAG), shell=True, cwd=full_path)
+    print subprocess.call("git merge FETCH_HEAD", shell=True, cwd=full_path)
+    print subprocess.call("git push aosp-caf HEAD", shell=True, cwd=full_path)
+    print()
+
