@@ -1,6 +1,6 @@
 import subprocess
 
-TAG = "LA.UM.8.4.r1-05000-8x98.0"
+TAG = "LA.UM.8.4.1.r1-01100-8x98.0"
 codeaurora_base = "https://source.codeaurora.org/quic/la"
 build_top = "/root/caf10/"
 upstreamable_tag = 'upstream="caf"'
@@ -26,8 +26,8 @@ for path, repo in custom_repos.items():
     print("repo: " + path)
     full_path = "{}{}".format(build_top, path)
     subprocess.Popen("git checkout q 2>/dev/null", shell=True, cwd=full_path)
-    print subprocess.call("git fetch {}/{} refs/tags/{}".format(codeaurora_base, repo, TAG), shell=True, cwd=full_path)
-    print subprocess.call("git merge FETCH_HEAD", shell=True, cwd=full_path)
-    print subprocess.call("git push aosp-caf HEAD", shell=True, cwd=full_path)
+    print(subprocess.call("git fetch {}/{} refs/tags/{}".format(codeaurora_base, repo, TAG), shell=True, cwd=full_path))
+    print(subprocess.call("git merge FETCH_HEAD", shell=True, cwd=full_path))
+    print(subprocess.call("git push aosp-caf HEAD", shell=True, cwd=full_path))
     print()
 
