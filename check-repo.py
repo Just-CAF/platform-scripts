@@ -31,4 +31,4 @@ for path, repo in custom_repos.items():
     full_path = "{}{}".format(build_top, path)
     print subprocess.call("git status", shell=True, cwd=full_path)
     raw_input("Press Enter to continue...")
-    print("1")
+    print("")
