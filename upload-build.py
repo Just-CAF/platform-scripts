@@ -7,9 +7,8 @@ for device_dir in build_dirs:
     newest = ""
     for file in os.listdir(device_dir):
         if file.endswith(".zip"):
-            filename = file.split("-")
-	    newest = file
+            filename = file
 
     device = device_dir.split('/')[3]
-    command = "scp {} rautamak@frs.sourceforge.net:/home/frs/project/just-caf-releases/custom_prerelease/{}".format(device_dir + "/" + newest, device.capitalize())
+    command = "scp {} rautamak@frs.sourceforge.net:/home/frs/project/just-caf-releases/custom_prerelease/{}".format(device_dir + "/" + filename, device.capitalize())
     subprocess.call(command, shell=True)
