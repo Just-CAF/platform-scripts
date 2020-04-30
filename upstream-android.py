@@ -1,6 +1,6 @@
 import subprocess
 
-TAG = "LA.UM.8.4.r1-05200-8x98.0"
+TAG = "LA.UM.8.4.1.r1-01700-8x98.0"
 codeaurora_base = "https://source.codeaurora.org/quic/la"
 build_top = "/root/caf10/"
 upstreamable_tag = 'upstream="caf"'
