@@ -1,6 +1,17 @@
 from urllib.request import urlopen
 
-TAG = "LA.UM.8.4.1.r1-01700-8x98.0"
+TAG = ""
+
+c = open("manifest/codeaurora.xml", "r")
+for line in c.readlines():
+    if '<default revision="' in line:
+        TAG = line.split('"')[1].split("/")[2]
+        print("Update to " + TAG)
+
+        break
+
+c.close()
+
 
 URL = "https://source.codeaurora.org/quic/la/platform/manifest/plain/{}.xml?h=release".format(TAG)
 caf = urlopen(URL)
