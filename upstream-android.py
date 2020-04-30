@@ -1,13 +1,24 @@
 import subprocess
+import os
 
-TAG = "LA.UM.8.4.1.r1-01700-8x98.0"
+TAG = ""
 codeaurora_base = "https://source.codeaurora.org/quic/la"
-build_top = "/root/caf10/"
+build_top = os.getcwd() + "/"
 upstreamable_tag = 'upstream="caf"'
 custom_repos = {}
 
-f = open("manifest/default.xml", "r")
-for line in f.readlines():
+caf = open("manifest/codeaurora.xml", "r")
+for line in caf.readlines():
+    if '<default revision="' in line:
+        TAG = line.split('"')[1].split("/")[2]
+        print("Update to " + TAG)
+
+        break
+
+caf.close()
+
+manifest = open("manifest/default.xml", "r")
+for line in manifest.readlines():
     if upstreamable_tag in line:
         name = line.split('"')[1].replace("_", "/")
         path = line.split('"')[3]
@@ -20,8 +31,9 @@ for line in f.readlines():
         if name == "platform/external/libunwind/llvm":
             name = "platform/external/libunwind_llvm"
 
-        print(codeaurora_base + "/" + name)
         custom_repos[path] = name
+
+manifest.close()
 
 for path, repo in custom_repos.items():
     print("repo: " + path)
