@@ -30,7 +30,7 @@ changelog_file = open(CHANGELOG_FILENAME, "w+")
 for repo in custom_repos:
     full_path = "{}{}".format(BUILD_TOP, repo)
     log = subprocess.Popen("git log --after={} --pretty='format:%h %<(10)%an %s'".format(previous), shell=True, cwd=full_path, stdout=subprocess.PIPE)
-    output = log.stdout.read().decode('ascii')
+    output = log.stdout.read().decode('utf-8')
     if output != "":
         print(output)
         changelog_file.write("{}\n\n{}\n\n".format(repo, output))
