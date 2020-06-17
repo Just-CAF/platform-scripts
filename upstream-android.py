@@ -41,5 +41,7 @@ for path, repo in custom_repos.items():
     subprocess.Popen("git checkout custom 2>/dev/null || git checkout q", shell=True, cwd=full_path)
     print(subprocess.call("git fetch {}/{} refs/tags/{}".format(codeaurora_base, repo, TAG), shell=True, cwd=full_path))
     print(subprocess.call("git merge FETCH_HEAD --no-edit", shell=True, cwd=full_path))
+    print(subprocess.call("git tag {}".format(TAG), shell=True, cwd=full_path))
     print(subprocess.call("git push aosp-caf HEAD", shell=True, cwd=full_path))
+    print(subprocess.call("git push aosp-caf --tags", shell=True, cwd=full_path))
     print("")
